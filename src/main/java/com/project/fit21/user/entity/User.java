@@ -13,19 +13,21 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "users")
+@Table(name = "USERS")
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
+@Data
 
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String Id;
+    private String id;
 
     private String name;
 

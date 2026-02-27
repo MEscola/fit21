@@ -21,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
     private final UserRepository userRepository;
 
     @PostMapping
