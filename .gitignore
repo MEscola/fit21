@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Log e Banco de Dados temporário (H2)
+*.log
+testdb.mv.db
+testdb.trace.db
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Configurações de ambiente 
+.env
