@@ -12,29 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.fit21.user.entity.User;
-import com.project.fit21.user.repository.UserRepository;
+import com.project.fit21.user.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+;
+
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        User savedUser = userRepository.save(user);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+    public User create(@RequestBody User user) {
+        return userService.create(user);
     }
 
-    
     @GetMapping
     public List<User> list() {
-        return userRepository.findAll();
+        return userService.list();
     }
-
 
 }
