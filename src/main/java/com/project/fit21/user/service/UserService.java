@@ -2,6 +2,7 @@ package com.project.fit21.user.service;
 
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.project.fit21.user.dto.UserRequestDTO;
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public UserResponseDTO create(UserRequestDTO request) {
 
@@ -29,7 +31,7 @@ public class UserService {
         User user = User.builder()
                 .name(request.name())
                 .email(request.email())
-                .password(request.password())
+                .password(passwordEncoder.encode(request.password())) // hash de senha
                 .build();
 
         // SALVAR USUÁRIO NO BANCO DE DADOS
