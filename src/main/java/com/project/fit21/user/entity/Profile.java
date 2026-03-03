@@ -1,6 +1,6 @@
-package com.project.fit21.student.entity;
+package com.project.fit21.user.entity;
 
-import com.project.fit21.user.entity.User;
+import java.sql.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,19 +13,23 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "students")
+@Table(name = "profile")
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class Student {
+public class Profile {
 
     @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String Id;
 
-    private String name;
+    private String user_id;
 
     private String goal;
+
+    private String level;
+
+    private Date birth_date;
 
     @ManyToOne
     @JoinColumn(name = "coach_id")
